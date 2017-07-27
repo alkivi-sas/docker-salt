@@ -5,11 +5,11 @@ ENV VERSION $version
 
 # Install salt
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
-    aDEBIAN_FRONTEND=noninteractive pt-get install -y wget apt-utils gnupg && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y wget apt-utils gnupg && \
     wget -O - https://repo.saltstack.com/apt/debian/9/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add - && \
     echo "deb http://repo.saltstack.com/apt/debian/9/amd64/${VERSION} stretch main" > /etc/apt/sources.list.d/saltstack.list && \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y salt-master salt-minion salt-api && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y salt-master salt-minion salt-api
 
 # Create path
 RUN mkdir -p /var/run/salt /etc/salt/pki/master/minions
