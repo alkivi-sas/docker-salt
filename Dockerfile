@@ -30,5 +30,5 @@ VOLUME ["/etc/salt", "/var/cache/salt", "/var/logs/salt", "/srv/salt"]
 EXPOSE 4505 4506 8080
 
 # Entry point
-WORKDIR /srv
-ENTRYPOINT ["bash", "start.sh"]
+ADD start.sh /start.sh
+CMD ["bash", "start.sh"]
