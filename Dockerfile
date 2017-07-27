@@ -12,7 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y salt-master salt-minion salt-api
 
 # Create path
-RUN mkdir -p /var/run/salt /etc/salt/pki/master/minions
+RUN mkdir -p /var/cache/salt/master /var/cache/salt/minion /var/run/salt /etc/salt/pki/master/minions
 
 # Clean image
 RUN apt-get -yqq clean && \
